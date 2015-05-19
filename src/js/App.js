@@ -1,22 +1,57 @@
+var PointLight = require('famous/webgl-renderables/lights/PointLight');
 var FamousEngine = require('famous/core/FamousEngine');
+var Mesh = require('famous/webgl-renderables/Mesh');
+var Camera = require('famous/components/Camera');
+var Color = require('famous/utilities/Color');
+var DOMElement = require('famous/dom-renderables/DOMElement')
 
-function App(options) {
+function App(scene) {
 
-	// Create the scene based on an input selector.
+	// Add a camera to our scene for perspective rendering.
 
-	var scene = FamousEngine.createScene(options.selector);
+	var camera = new Camera(scene)
+		.setDepth(1000);
 
-	// Add a child node to add our mesh to.
+	// Add mesh to our scene.
 
-	var child = scene.addChild();
+	var meshNode = scene.addChild()
+	    .setOrigin(0.5, 0.5, 0.5)
+	    .setAlign(0.5, 0.5, 0.5)
+	    .setMountPoint(0.5, 0.5, 0.5)
+	    .setSizeMode(1, 1, 1)
+	    .setAbsoluteSize(200, 200, 200);
 
-	// Pass child node into new Mesh component.
+	var mesh = new Mesh(meshNode)
+		.setGeometry('Sphere');
 
-	var mesh = new Mesh(child);
+	var element = new DOMElement(meshNode)
+		.setProperty('background-color', 'pink');
 
-	// Give the mesh a geometry.
+	// Add light component to our scene.
 
-	mesh.setGeometry('Box');
+	var lightNode = scene.addChild()
+		.setAlign(0.5, 0.5, 0.5)
+		.setPosition(0, 0, 250);
+
+	var light = new PointLight(lightNode)
+		.setColor(new Color('white'));
+
+	// Save reference to our Famous clock
+
+	var clock = FamousEngine.getClock();
+
+	// Define update loop
+
+	clock.setInterval(function() {
+		var time = clock.getTime();
+
+		meshNode.setRotation(
+			time / 1500,
+			time / 1200,
+			time / 1300
+		);
+
+	}, 16);
 }
 
 module.exports = App;

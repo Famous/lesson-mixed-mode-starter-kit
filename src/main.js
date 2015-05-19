@@ -15,4 +15,5 @@ var engine = new Engine();
 engine.update(threadmanger);
 
 // App Code
-require('./carousel/main')
+var App = require('./js/App');
+var app = new App({ selector: 'body' });

@@ -1,9 +1,9 @@
 var PointLight = require('famous/webgl-renderables/lights/PointLight');
 var FamousEngine = require('famous/core/FamousEngine');
-var Mesh = require('famous/webgl-renderables/Mesh');
 var Camera = require('famous/components/Camera');
 var Color = require('famous/utilities/Color');
-var DOMElement = require('famous/dom-renderables/DOMElement')
+var DOMElement = require('famous/dom-renderables/DOMElement');
+var DeviceView = require('./DeviceView');
 
 function App(scene) {
 
@@ -14,18 +14,14 @@ function App(scene) {
 
 	// Add mesh to our scene.
 
-	var meshNode = scene.addChild()
+	var laptopNode = scene.addChild()
 	    .setOrigin(0.5, 0.5, 0.5)
 	    .setAlign(0.5, 0.5, 0.5)
 	    .setMountPoint(0.5, 0.5, 0.5)
 	    .setSizeMode(1, 1, 1)
 	    .setAbsoluteSize(200, 200, 200);
 
-	var mesh = new Mesh(meshNode)
-		.setGeometry('Sphere');
-
-	var element = new DOMElement(meshNode)
-		.setProperty('background-color', 'pink');
+	var deviceView = new DeviceView(laptopNode, {});
 
 	// Add light component to our scene.
 
@@ -33,8 +29,7 @@ function App(scene) {
 		.setAlign(0.5, 0.5, 0.5)
 		.setPosition(0, 0, 250);
 
-	var light = new PointLight(lightNode)
-		.setColor(new Color('white'));
+	var light = new PointLight(lightNode, new Color('white'))
 
 	// Save reference to our Famous clock
 
@@ -45,7 +40,7 @@ function App(scene) {
 	clock.setInterval(function() {
 		var time = clock.getTime();
 
-		meshNode.setRotation(
+		laptopNode.setRotation(
 			time / 1500,
 			time / 1200,
 			time / 1300

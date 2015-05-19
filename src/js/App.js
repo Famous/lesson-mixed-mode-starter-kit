@@ -12,16 +12,16 @@ function App(scene) {
 	var camera = new Camera(scene)
 		.setDepth(1000);
 
-	// Add mesh to our scene.
+	// Add the device view to our scene.
 
-	var laptopNode = scene.addChild()
+	var deviceNode = scene.addChild()
 	    .setOrigin(0.5, 0.5, 0.5)
 	    .setAlign(0.5, 0.5, 0.5)
 	    .setMountPoint(0.5, 0.5, 0.5)
 	    .setSizeMode(1, 1, 1)
 	    .setAbsoluteSize(200, 200, 200);
 
-	var deviceView = new DeviceView(laptopNode, {});
+	var deviceView = new DeviceView(deviceNode, {});
 
 	// Add light component to our scene.
 
@@ -40,7 +40,7 @@ function App(scene) {
 	clock.setInterval(function() {
 		var time = clock.getTime();
 
-		laptopNode.setRotation(
+		deviceNode.setRotation(
 			time / 1500,
 			time / 1200,
 			time / 1300

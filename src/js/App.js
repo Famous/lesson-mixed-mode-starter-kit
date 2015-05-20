@@ -18,7 +18,7 @@ function App(scene) {
 	    .setOrigin(0.5, 0.5, 0.5)
 	    .setAlign(0.5, 0.5, 0.5)
 	    .setMountPoint(0.5, 0.5, 0.5)
-	    .setRotation(0.2)
+	    .setRotation(0.3)
 	    .setSizeMode(1, 1, 1)
 	    .setPosition(0, 0, 200)
 	    .setAbsoluteSize(600, 600, 600);
@@ -27,12 +27,32 @@ function App(scene) {
 		deviceNode,
 		{
 			iframeURL: 'http://famous.co/',
-			objURLs: [
-				'obj/macbook/body.obj',
-				'obj/macbook/keyboard.obj',
-				'obj/macbook/lid.obj',
-				'obj/macbook/screen.obj',
-				'obj/macbook/vents.obj',
+			objs: [
+				{
+					url: 'obj/macbook/body.obj',
+					baseColor: 'silver',
+					glossiness: 500
+				},
+				{
+					url: 'obj/macbook/keyboard.obj',
+					baseColor: '#181818',
+					glossiness: 20
+				},
+				{
+					url: 'obj/macbook/lid.obj',
+					baseColor: 'silver',
+					glossiness: 20
+				},
+				{
+					url: 'obj/macbook/screen.obj',
+					baseColor: 'black',
+					glossiness: 500
+				},
+				{
+					url: 'obj/macbook/vents.obj',
+					baseColor: 'silver',
+					glossiness: 20					
+				}
 			]
 		}
 	);

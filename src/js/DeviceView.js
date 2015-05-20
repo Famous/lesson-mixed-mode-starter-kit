@@ -9,7 +9,7 @@ function DeviceView(node, options) {
 		.setProportionalSize(0.93, 0.58, 1.0)
 		.setRotation(0, 0, 0)
 		.setMountPoint(0.5, 0.5, 0.5)
-		.setAlign(0.5, 0.48, 0.175)
+		.setAlign(0.5, 0.48, 0.168);
 
 	this.screenView = new ScreenView(
 		this.screenNode,
@@ -27,7 +27,7 @@ function DeviceView(node, options) {
 		// Pass down obj URLs to load
 
 		{
-			urls: options.objURLs
+			objs: options.objs
 		}
 	);
 }

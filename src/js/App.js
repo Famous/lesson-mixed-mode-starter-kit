@@ -41,7 +41,7 @@ function App(scene) {
 				{
 					url: 'obj/macbook/lid.obj',
 					baseColor: 'silver',
-					glossiness: 20
+					glossiness: 5
 				},
 				{
 					url: 'obj/macbook/screen.obj',
@@ -77,7 +77,7 @@ function App(scene) {
 
 		deviceNode.setRotation(
 			0,
-			Math.sin(time / 1500) * 0.5,
+			time / 1500,
 			0
 		);
 

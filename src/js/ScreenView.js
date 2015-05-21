@@ -1,6 +1,6 @@
 var DOMElement = require('famous/dom-renderables/DOMElement');
 
-function ScreenView(node, options) {
+function ScreenView(node) {
 	// this.element = new DOMElement(node)
 	// .setProperty('background-color', 'pink')
 	// .setContent('This is the ScreenView!');

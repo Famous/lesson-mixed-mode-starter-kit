@@ -2,7 +2,7 @@ var OBJLoader = require('famous/webgl-geometries/OBJLoader');
 var Mesh = require('famous/webgl-renderables/Mesh');
 var Geometry = require('famous/webgl-geometries/Geometry');
 
-function OBJView(node, options) {
+function OBJView(node) {
 	this.node = node;
 
 	OBJLoader.load('obj/macbook.obj', function(geometries) {

@@ -24,10 +24,7 @@ function App(scene) {
 	    .setAbsoluteSize(600, 600, 600);
 
 	var deviceView = new DeviceView(
-		deviceNode,
-		{
-			iframeURL: 'http://famous.co/'
-		}
+		deviceNode
 	);
 
 	// Add light component to our scene.

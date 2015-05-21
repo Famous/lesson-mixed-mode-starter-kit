@@ -12,7 +12,7 @@ function ScreenView(node, options) {
 
 	this.mesh = new Mesh(node)
 		.setGeometry('Plane')
-		.setBaseColor(new Color('black').setOpacity(0))
+		.setBaseColor(new Color(options.baseColor).setOpacity(0))
 		.setGlossiness(new Color(options.glossColor), options.glossiness);
 }
 

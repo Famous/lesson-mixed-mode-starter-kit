@@ -20,7 +20,7 @@ function App(scene) {
 	    .setMountPoint(0.5, 0.5, 0.5)
 	    .setRotation(1.5, 0, 0)
 	    .setSizeMode(1, 1, 1)
-	    .setPosition(0, 0, 200)
+	    .setPosition(0, 0, 0)
 	    .setAbsoluteSize(600, 600, 600);
 
 	var deviceView = new DeviceView(

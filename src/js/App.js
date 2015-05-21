@@ -26,14 +26,7 @@ function App(scene) {
 	var deviceView = new DeviceView(
 		deviceNode,
 		{
-			iframeURL: 'http://famous.co/',
-			objURLs: [
-				'obj/macbook/body.obj',
-				'obj/macbook/keyboard.obj',
-				'obj/macbook/lid.obj',
-				'obj/macbook/screen.obj',
-				'obj/macbook/vents.obj',
-			]
+			iframeURL: 'http://famous.co/'
 		}
 	);
 

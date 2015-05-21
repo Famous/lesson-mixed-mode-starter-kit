@@ -3,16 +3,17 @@ var Mesh = require('famous/webgl-renderables/Mesh');
 var Color = require('famous/utilities/Color');
 
 function ScreenView(node, options) {
+
 	this.element = new DOMElement(node, {
-		tagName: 'iframe',
+		tagName: 'iframe'
 	})
-	.setAttribute('src', options.url)
+	.setAttribute('src', options.iframeURL)
 	.setProperty('border', 'none');
 
 	this.mesh = new Mesh(node)
 		.setGeometry('Plane')
-		.setBaseColor(new Color('black'))
-		.setGlossiness(new Color('white'), 500);
+		.setBaseColor(new Color('black').setOpacity(0))
+		.setGlossiness(new Color(options.glossColor), options.glossiness);
 }
 
 module.exports = ScreenView;

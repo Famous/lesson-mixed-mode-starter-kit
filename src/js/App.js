@@ -18,7 +18,7 @@ function App(scene) {
 	    .setOrigin(0.5, 0.5, 0.5)
 	    .setAlign(0.5, 0.5, 0.5)
 	    .setMountPoint(0.5, 0.5, 0.5)
-	    .setRotation(0.3)
+	    .setRotation(1.5, 0, 0)
 	    .setSizeMode(1, 1, 1)
 	    .setPosition(0, 0, 200)
 	    .setAbsoluteSize(600, 600, 600);
@@ -26,32 +26,47 @@ function App(scene) {
 	var deviceView = new DeviceView(
 		deviceNode,
 		{
-			iframeURL: 'http://famous.co/',
-			objs: [
+			screen: {
+				iframeURL: 'http://famous.co/',
+				baseColor: 'black',
+				glossiness: 500,
+				glossColor: 'white'
+			},
+			OBJPeices: [
 				{
-					url: 'obj/macbook/body.obj',
 					baseColor: 'silver',
-					glossiness: 500
+					glossiness: 500,
+					glossColor: '#444'
 				},
 				{
-					url: 'obj/macbook/keyboard.obj',
+					geometry: 'keyboard',
 					baseColor: '#181818',
-					glossiness: 20
+					glossiness: 20,
+					glossColor: 'white'
 				},
 				{
-					url: 'obj/macbook/lid.obj',
-					baseColor: 'silver',
-					glossiness: 5
-				},
-				{
-					url: 'obj/macbook/screen.obj',
+					geometry: 'screen',
 					baseColor: 'black',
-					glossiness: 500
+					glossiness: 500,
+					glossColor: 'white'
 				},
 				{
-					url: 'obj/macbook/vents.obj',
+					geometry: 'body',
 					baseColor: 'silver',
-					glossiness: 20					
+					glossiness: 5,
+					glossColor: '#222'
+				},
+				{
+					geometry: 'logo',
+					baseColor: 'white',
+					glossiness: 5000,
+					glossColor: 'white'
+				},
+				{
+					geometry: 'lid',
+					baseColor: 'silver',
+					glossiness: 15,
+					glossColor: '#444'				
 				}
 			]
 		}

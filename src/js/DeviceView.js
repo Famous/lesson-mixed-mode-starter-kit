@@ -7,15 +7,15 @@ function DeviceView(node, options) {
 
 	this.screenNode = node.addChild()
 		.setProportionalSize(0.93, 0.58, 1.0)
-		.setRotation(0, 0, 0)
 		.setMountPoint(0.5, 0.5, 0.5)
 		.setAlign(0.5, 0.48, 0.168);
 
 	this.screenView = new ScreenView(
 		this.screenNode,
-		{
-			url: options.iframeURL
-		}
+
+		// Pass down screen options
+
+		options.screen
 	);
 
 	// Add our objNode and objView
@@ -26,9 +26,7 @@ function DeviceView(node, options) {
 
 		// Pass down obj URLs to load
 
-		{
-			objs: options.objs
-		}
+		options.OBJPeices
 	);
 }
 

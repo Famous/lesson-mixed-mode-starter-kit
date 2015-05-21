@@ -1,87 +1,81 @@
-##Carousel Lesson Starter Kit  -  Step 1: "Hello Famous!"
+---
+layout: default
+title: Using Meshes
+---
 
-Screen shot at current step:
+## The Mesh Component
 
-![screenshot](./Screenshot.png)
+Before thinking about how to structure our demo, we should learn about the primary component of the WebGLRenderer, the __Mesh Component__
 
-## Check out the Full Lesson Here:
-[http://learn-staging.famo.us/lessons/carousel/HelloFamous.html](http://learn-staging.famo.us/lessons/carousel/HelloFamous.html)
+## Boilerplate
 
-=================
+Let's get our app up and running with some boilerplate code.  This should look familiar.  Copy and paste the code snippets below into `index.js`.
 
-_Excerpt from Step 1: Hello Famous!_
+    var FamousEngine = require('famous/core/FamousEngine');
 
-##Hello Famous!
+    // Create the scene based on a selector.
 
-<span class="intro-graf">
-Before we begin creating the carousel itself, let's display a basic "Hello World" message, just to establish the foundations for our application.
-</span>
+    var scene = FamousEngine.createScene('body');
 
-Throughout the app, we'll use the JavaScript "class" pattern to organize our code. It's a good idea to familiarize yourself with this pattern, since many Famous applications use it for structure.
+    // Initialize the engine.
+        
+    FamousEngine.init();
 
-## A basic structure
+    // App Code
 
-Copy and paste the code snippets below into the files `main.js` and `Carousel.js` (respectively), which are included in the [carousel starter kit](https://github.famo.us/learn/lesson-carousel-starter-kit) that you downloaded in the [getting started section](http://learn-staging.famo.us/lessons/carousel/GettingStarted.html).
+    var App = require('./js/App');
+    var app = new App(scene);
 
-    /**
-     * main.js
-     */
+The App code section at the bottom of the index page is where we create our app and pass in a selector.  If we look into `App.js` we can see exactly what this App function is.
 
-    var Carousel = require('./Carousel');
-    var data = require('../data/ImageData');
-    var carousel = new Carousel('body', { pageData: data });
+## Creating our App
 
-<!-- -->
+    var FamousEngine = require('famous/core/FamousEngine');
+    var Mesh = require('famous/webgl-renderables/Mesh');
 
-    /**
-     * Carousel.js
-     */
+    function App(scene) {
 
-    var FamousPlatform = require('famous');
-    var Famous = FamousPlatform.core.Famous;
-    var DOMElement = FamousPlatform.domRenderables.DOMElement;
+        // Add a child node to add our mesh to.
 
-    function Carousel(selector, data) {
-        // Create a Context instance. Contexts are
-        // the starting point for all Famous apps.
-        this.context = Famous.createContext(selector);
+        var child = scene.addChild();
 
-        // Add the first scene graph node to the
-        // context. This is the 'root' node.
-        this.root = this.context.addChild();
+        // Pass child node into new Mesh component.
 
-        // Decorate the node with a DOMElement
-        // component, and use the component to apply
-        // content and styling
-        this.el = new DOMElement(this.root);
-        this.el.setContent('Hello Famous!');
-        this.el.setProperty('font-size', '40px');
-        this.el.setProperty('color','white');
+        var mesh = new Mesh(child);
+
+        // Give the mesh a geometry.
+
+        mesh.setGeometry('Circle');
     }
 
-    module.exports = Carousel;
+    module.exports = App;
 
+Here you can see that our App is nothing more than a function that takes in a scene as an argument.  
 
-## Explanation
+From there, a child node is added to the scene and passed into the __Mesh Component__.  You can think of a mesh as a WebGL object.  In drawing our mesh, we must decide it's geometry (shape) and its color.
 
-In the code above, note how the carousel constructor calls `.createContext()` on the `Famous` component and passes it a _CSS selector_ for the specific DOM element (in this case, the `'body'`) that we want to mount our app to.
+In the above example we set our Mesh's geometry to that of a circle.  We won't set the color of the Mesh quite yet, which should leave the mesh with the default color.
 
-The context object (returned from `.createContext`) forms the base of the Famous [scene graph](#) and handles attaching our app to the DOM. Adding child nodes to the context -- extending the scene graph -- is the process by which we add visual elements to our app.
+The result is a soothing-gray circle, the size of our scene, which in this case is the size of screen.
 
-Pay attention to how the _root_ scene graph node gets passed as an argument to the HTMLElement component's constructor. This is how we _decorate_ our scene graph nodes with visual components.
+The MIT License (MIT)
 
-## Next steps
+Copyright (c) 2015 Famous Industries Inc.
 
-Now that we understand how to put together a basic Famous scene, let's move on to architecting our more-complex carousel app.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-<div class="sidenote--other">
-<p><strong>Modified files:</strong> <a href="https://github.famo.us/learn/lesson-carousel-starter-kit/blob/step1/HelloFamous/src/carousel/main.js">main.js</a> | <a href="https://github.famo.us/learn/lesson-carousel-starter-kit/blob/step1/HelloFamous/src/carousel/Carousel.js">Carousel.js</a></p>
-</div>
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-<div class="sidenote">
-<p><strong>Section recap:</strong> <a href="https://github.famo.us/learn/lesson-carousel-starter-kit/tree/step1/HelloFamous">Code for this step</a></p>
-</div>
-
-<span class="cta">
-[Up next: Architecture &raquo;](http://learn-staging.famo.us/lessons/carousel/Architecture.html)
-</span>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

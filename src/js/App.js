@@ -87,16 +87,19 @@ function App(scene) {
 
 	// Define update loop
 
-	clock.setInterval(function() {
-		var time = clock.getTime();
+	var updater = deviceNode.addComponent({
+		onUpdate: function onUpdate(time) {
+			deviceNode.setRotation(
+				-0.2,
+				Math.sin(time / 1500) * 0.5,
+				0
+			);
 
-		deviceNode.setRotation(
-			-0.2,
-			Math.sin(time / 1500) * 0.5,
-			0
-		);
+			deviceNode.requestUpdateOnNextTick(updater);
+		}
+	});
 
-	}, 16);
+	deviceNode.requestUpdateOnNextTick(updater);
 }
 
 module.exports = App;

@@ -1,6 +1,5 @@
 dist
 public/*.bundle.js
-public/obj/*
 node_modules
 npm-debug.log
 .DS_Store

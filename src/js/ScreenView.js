@@ -8,7 +8,9 @@ function ScreenView(node, options) {
 		tagName: 'iframe'
 	})
 	.setAttribute('src', options.iframeURL)
-	.setProperty('border', 'none');
+	.setProperty('border', 'none')
+	.setProperty('backface-visibility', 'none')
+	.setProperty('overflow', 'hidden');
 
 	this.mesh = new Mesh(node)
 		.setGeometry('Plane')

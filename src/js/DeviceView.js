@@ -8,7 +8,7 @@ function DeviceView(node, options) {
 	this.screenNode = node.addChild()
 		.setProportionalSize(0.93, 0.58, 1.0)
 		.setMountPoint(0.5, 0.5, 0.5)
-		.setAlign(0.5, 0.48, 0.168);
+		.setAlign(0.5, 0.48, 0.17);
 
 	this.screenView = new ScreenView(
 		this.screenNode,

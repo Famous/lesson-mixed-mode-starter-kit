@@ -18,16 +18,16 @@ function App(scene) {
 	    .setOrigin(0.5, 0.5, 0.5)
 	    .setAlign(0.5, 0.5, 0.5)
 	    .setMountPoint(0.5, 0.5, 0.5)
-	    .setRotation(1.5, 0, 0)
+	    .setRotation(0, 0, 0)
 	    .setSizeMode(1, 1, 1)
-	    .setPosition(0, 0, 0)
+	    .setPosition(0, 0, -400)
 	    .setAbsoluteSize(600, 600, 600);
 
 	var deviceView = new DeviceView(
 		deviceNode,
 		{
 			screen: {
-				iframeURL: 'http://famous.co/',
+				iframeURL: 'http://famous.org',
 				baseColor: 'black',
 				glossiness: 500,
 				glossColor: 'white'
@@ -91,7 +91,7 @@ function App(scene) {
 		var time = clock.getTime();
 
 		deviceNode.setRotation(
-			0,
+			-0.2,
 			time / 1500,
 			0
 		);

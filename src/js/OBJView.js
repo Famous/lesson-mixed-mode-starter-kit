@@ -5,8 +5,9 @@ var Geometry = require('famous/webgl-geometries/Geometry');
 function OBJView(node, options) {
 	this.node = node;
 
-	for (var i = 0; i < options.urls.length; i++) {
-		OBJLoader.load(options.urls[i], function(buffers) {
+	OBJLoader.load('obj/macbook.obj', function(geometries) {
+		for (var i = 0; i < geometries.length; i++) {
+			var buffers = geometries[i];
 
 			var geometry = new Geometry({
 				buffers: [
@@ -17,12 +18,11 @@ function OBJView(node, options) {
 				]
 			});
 
-			var node = this.node.addChild();
-			var mesh = new Mesh(node)
+			var peiceNode = node.addChild();
+			var mesh = new Mesh(peiceNode)
 				.setGeometry(geometry)
-
-		}.bind(this));
-	}
+		}
+	});
 }
 
 module.exports = OBJView;

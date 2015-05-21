@@ -37,7 +37,6 @@
     "brfs": "^1.1.1",
     "browserify": "^9.0.7",
     "cssify": "^0.7.0",
-    "famous": "git+ssh://git@github.com:Famous/mixed-mode.git#develop",
-    "script-optimizer": "git+ssh://git@github.famo.us:build/script-optimizer.git"
+    "famous": "git+ssh://git@github.com:Famous/engine.git"
   }
 }

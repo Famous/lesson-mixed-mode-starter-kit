@@ -1,4 +1,5 @@
 var FamousEngine = require('famous/core/FamousEngine');
+var Mesh = require('famous/webgl-renderables/Mesh');
 
 function App(options) {
 
@@ -16,7 +17,7 @@ function App(options) {
 
 	// Give the mesh a geometry.
 
-	mesh.setGeometry('Box');
+	mesh.setGeometry('Circle');
 }
 
 module.exports = App;

@@ -26,7 +26,7 @@ function App(scene) {
 	var deviceView = new DeviceView(
 		deviceNode,
 		{
-			iframeURL: 'http://famous.co/'
+			iframeURL: 'http://famous.org/'
 		}
 	);
 

@@ -5,6 +5,7 @@ function ScreenView(node, options) {
 		tagName: 'iframe',
 	})
 	.setAttribute('src', options.url)
+	.setProperty('backface-visibility', 'none')
 	.setProperty('border', 'none');
 }
 

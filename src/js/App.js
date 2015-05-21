@@ -20,7 +20,7 @@ function App(scene) {
 	    .setMountPoint(0.5, 0.5, 0.5)
 	    .setRotation(0, 0, 0)
 	    .setSizeMode(1, 1, 1)
-	    .setPosition(0, 0, -400)
+	    .setPosition(0, 0, -100)
 	    .setAbsoluteSize(600, 600, 600);
 
 	var deviceView = new DeviceView(
@@ -76,7 +76,7 @@ function App(scene) {
 
 	var lightNode = scene.addChild()
 		.setAlign(0.5, 0.5, 0.5)
-		.setPosition(0, 0, 700);
+		.setPosition(0, 100, 700);
 
 	var light = new PointLight(lightNode)
 		.setColor(new Color('white'))
@@ -92,7 +92,7 @@ function App(scene) {
 
 		deviceNode.setRotation(
 			-0.2,
-			time / 1500,
+			Math.sin(time / 1500) * 0.5,
 			0
 		);
 

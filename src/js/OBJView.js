@@ -5,7 +5,7 @@ var Color = require('famous/utilities/Color');
 
 function OBJView(node, peices) {
 
-		OBJLoader.load('obj/macbook/combined.obj', function(geometries) {
+		OBJLoader.load('obj/macbook.obj', function(geometries) {
 			for (var i = 0; i < geometries.length; i++) {
 				var buffers = geometries[i];
 
